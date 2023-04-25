@@ -1,0 +1,71 @@
+.imgStyle {
+    background-image: url("../img/games.jpg");
+    background-repeat: no-repeat;
+    background-size: 1191px 421px;
+    background-position: center top -41px;
+    opacity: 0.9;
+    border-radius: 41px;
+  }
+
+
+  .divStyle {
+    /* background-color: #ad5f17; */
+    background: linear-gradient(45deg, #91bf01, #5e34c1c9, #4bc134c9);
+    border-radius: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 348px;
+    padding-right: 27px;
+    justify-content: flex-end;
+    opacity: 0.3;
+  }
+
+  /* .divStyle:hover { */
+    /* background-color: #ad5f17; */
+    /* background: linear-gradient(45deg,#4bc134c9 , #a534c1c9, #91bf01);
+   
+  } */
+  /* Definimos la animación "intermitente" que alterna entre dos colores */
+  @keyframes intermitente {
+    0% {
+      background: linear-gradient(45deg, #91bf01, #5e34c1c9, #4bc134c9);
+    }
+    20% {
+      background: linear-gradient(45deg, #a534c1c9, #4bc134c9, #91bf01);
+    }
+    60% {
+      background: linear-gradient(45deg, #4bc134c9,#91bf01, #5e34c1c9);
+    }
+    /* 100% {
+      background: linear-gradient(45deg, #5e34c1c9, #4bc134c9, #91bf01);
+    } */
+  }
+  
+  /* Aplicamos la animación "intermitente" al elemento que deseamos afectar */
+  .divStyle {
+    animation: intermitente 3s linear infinite;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  .search {
+    margin-right: 10px;
+  }
+  .link {
+    text-decoration: none;
+    margin: 10px;
+    color:rgb(34, 145, 165);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+
+}

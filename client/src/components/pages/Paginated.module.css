@@ -1,0 +1,23 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+.listBoton {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.pageBoton {
+  margin: 30px 15px;
+  border-radius: 10px;
+  border-color: #af9672;
+  height: 31px;
+  width: 38px;
+  background: linear-gradient(6deg, rgb(185 179 152), #5a556a00);
+  border: none;
+}
+.pageBoton:hover {
+  
+  background: linear-gradient(6deg, rgb(171, 177, 104), #5a556a00);
+}
