@@ -150,35 +150,7 @@ const resetForm = () => {
             ))}
           </select>
         </label>
-      {/* <label htmlFor="diets">Diets
-        <select id="diets" name="diets" value={form.diets} multiple onChange={handleOnchange}>
-           {diets.map((diet, index) => (
-             <option key={index} value={diet}>
-             {diet}
-             </option>
-             ))}
-             </select>
-            </label>   */}
-            {/* <p>{form.diets.map(diet => diet + ", ")}</p>
-            <label htmlFor="diets">Diets
-            {diets.map((diet, index)=> (
-              <label key={index}>
-            <input type="checkbox" id="diet" name="diet" value={diet} defaultChecked={form.diets.includes(diet)} onChange={handleCheck}/> */}
-                 {/* <input type="checkbox" id="diet" name="diet" value={diet} checked={form.diets.includes(diet)} onChange={handleCheck}/> */}
-                 
-                 {/* {diet}
-                </label>
-                ))}
-              </label> */}
-            {/* <label htmlFor="diets">Diets</label>
-        {diets.map((diet, index) => (
-          <label key={index}>
-          <input type="checkbox" id="diets" name="diets" value="diets" checked={form.diets} onChange={handleCheck} />
-          <h1>{diet}</h1>
-          {/* <p>{form.diets.map(diet => diet + ", ")}</p> */}
-            {/* </label> */} 
-            {/* ))} */}   
-    
+     
      <button type="submit">crear Receta</button>
           {/* {errorCreate !== "" ? <p>{errorCreate}</p> : ""} */}
           {errorForm && <p>{errorForm}</p>}
