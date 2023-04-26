@@ -68,6 +68,8 @@ const reducer = (state = initialState, action) => {
               videoGameAll: action.payload
             }
         case SEARCH_ERROR:
+          // const cardsAll = state.videoGamesByGenreAll
+          // const filteredError = action.payload ===  "Games encontrado" ? cardsAll : action.payload
           return {
             ...state,
             errorName: action.payload
@@ -78,9 +80,12 @@ const reducer = (state = initialState, action) => {
             gameCreate: [...state.gameCreate, action.payload]
           }    
         case FORM_ERROR:
+          // const errorData = state.gameCreate
+          // const errorFiltered = action.payload === "" ? errorData : action.payload
           return {
             ...state,
             errorForm: action.payload
+            
           }
                default: {
                    return state

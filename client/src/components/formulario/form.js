@@ -5,6 +5,23 @@ let platforms = [
     "PlayStation 4",
     "Pc"
 ]
+const generos = [
+  "Action",
+  "Adventure",
+  "RPG",
+  "Shooter",
+  "Puzzle",
+  "Indie",
+  "Platformer",
+  "Massively Multiplayer",
+  "Sports",
+  "Racing",
+  "Simulation",
+  "Arcade",
+  "Casual",
+  "Fighting",
+  "Strategy",
+  "Family"
+]
 
-
-  module.exports = {platforms}
+  module.exports = {platforms, generos}

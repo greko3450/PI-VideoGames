@@ -1,13 +1,28 @@
 .imgStyle {
-    background-image: url("../img/games.jpg");
-    background-repeat: no-repeat;
-    background-size: 1191px 421px;
-    background-position: center top -41px;
-    opacity: 0.9;
-    border-radius: 41px;
+    background-image: url("../img/wdddd.jpg");
+    background-repeat: repeat;
+    background-size: 1252px 347px;
+    background-position: center top 1px;
+    opacity: 2;
+    border-radius: 40px;
   }
-
-
+  .imgStyle button{
+    background-image: url("../img/wdddd.jpg");
+    background-repeat: repeat;
+    background-size: 1275px 286px;
+    background-position: center top 9px;
+    width: 109px;
+    margin-right: -138px;
+    margin-bottom: -2px;
+    height: 36px;
+    border-radius: 30px;
+    color: #d61717;
+  }
+  .imgStyle p{
+    margin-bottom: -84px;
+    margin-left: 3px;
+    color: #f50000;
+  }
   .divStyle {
     /* background-color: #ad5f17; */
     background: linear-gradient(45deg, #91bf01, #5e34c1c9, #4bc134c9);
@@ -16,7 +31,7 @@
     flex-direction: row;
     align-items: center;
     height: 348px;
-    padding-right: 27px;
+    padding-right:158px;
     justify-content: flex-end;
     opacity: 0.3;
   }
@@ -59,13 +74,19 @@
 
 
   .search {
-    margin-right: 10px;
+    margin-right: 12px;
+    background-color: #543c0c;
+    padding: 6px;
+    height: 14px;
+    width: 239px;
+    border-radius: 10px;
   }
   .link {
     text-decoration: none;
-    margin: 10px;
-    color:rgb(34, 145, 165);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 20px;
+    margin: 56px;
+    color: rgb(231 223 200);
+    font-family: cursive;
+    text-shadow: 1px 1px 0 #000000, 4px -1px 0 #a89b69, 5px -1px 0 #555054, -1px 1px 0 #8b7025;
+    font-size: 24px;
 
 }

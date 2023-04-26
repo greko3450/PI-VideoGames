@@ -1,40 +1,46 @@
 .cards {
   display: flex;
-  flex-wrap: wrap;
-  
-  justify-content: space-between;
-  margin: 140px 42px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 15px 64px;
+  /* -moz-background-inline-policy: 10px; */
   
 }
 
 .container {
-  width: calc(37.33% - 68px);
-  margin-bottom: 67px;
+  width: calc(40.33% - 89px);
+  margin-bottom: 1px;
 }
 
-/* .divText {
-
-} */
+.errorStyle {
+  width: calc(40.33% - 89px);
+  margin-bottom: 1px;
+}
 
 .text {
   /* background-image: url("../img/he.jpg"); */
+  background-image: url("../img/corrugado.jpg");
   background-position: center;
-  background-size: 408px 350px;
-  background-color: #85603538;
-  border-radius: 49px;
-  color: #915f5f;
-  width: 240px;
-  height: 35px;
-  padding: 30px;
-  font-family: cursive;
-  margin: -14px 24px;
+    background-size: 377px 120px;
+    background-color: #85603559;
+    border-radius: 31px;
+    color: #68222294;
+    width: 268px;
+    height: 40px;
+    padding: 27px;
+    font-family: cursive;
+    font-size: 22px;
+    opacity: 0.9;
+    margin: -9px 17px;
 }
 
 .img {
-  height: 325px; 
+  background-color: rgb(112 78 38 / 21%);
+  padding: 10px;
+  height: 325px;
   width: 325px;
   border-radius: 50px;
-  box-shadow: 17px -11px 44px rgb(44 56 51 / 64%);
+  box-shadow: 17px -11px 44px rgb(58 42 10 / 57%);
 }
 
 .genreContainer {

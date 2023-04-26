@@ -1,0 +1,28 @@
+.botons {
+    background: linear-gradient(45deg, #66570ef0, #543c0c33, #44310e26);
+    color: #62380e9e;
+    border: none;
+    padding: 6px 24px;
+    border-radius: 13px;
+    cursor: pointer;
+    font-size: 17px;
+    margin: 29px 47px;
+}
+
+.selector {
+    color: #855315e3;
+    background: linear-gradient(45deg, #855535, #000000a8);
+    background-color: #bfa2675c;
+    height: 103px;  
+}
+
+.labelText {
+    
+    margin-right: -45px;
+    color: #9a6450fa;
+    padding: 7px;
+    font-size: 19px;
+    font-family: initial;
+
+}
+

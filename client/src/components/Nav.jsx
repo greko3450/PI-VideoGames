@@ -22,7 +22,7 @@ function Nav() {
   return(
     <nav>
       <SearchBar value={search} onSearch={onSearch} onChange={handleOnchange}/>
-      <NavLink to="/">Landing</NavLink>
+      <NavLink className={navStyle.link} to="/">Landing</NavLink>
       <NavLink className={navStyle.link} to="/form">Create Games</NavLink>
     </nav>
   )

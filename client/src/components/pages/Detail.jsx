@@ -26,12 +26,12 @@ function Detail() {
     </NavLink>
     {/* <div className={detalle.letter}>{detail.name?.charAt(0).toUpperCase()}</div> */}
     <div className={detalle.text}>
-      <h3>Title: {detail.name}</h3>
-      <p>description: {detail.description}</p>
-      {/* <p>Types of diet. {detail.platforms.map(plat => plat)}</p> */}
-      <p>Healthy food level health score. {detail.genres?.map(genre => genre.name)}</p>
-      <p>Healthy food level health score. {detail.releaseDate}</p>
-      <p>Step by Step. {detail.rating}</p>
+      <h3><strong>Name: </strong> {detail.name}</h3>
+      <p><strong>Description: </strong> {detail.description}</p>
+      <p><strong>Platforms: </strong> {detail.platforms?.map(plat => plat).join(", ")}</p>
+      <p><strong>Genres: </strong> {detail.genres?.map(genre => genre.name).join(", ")}</p>
+      <p><strong>Release Date: </strong> {detail.releaseDate}</p>
+      <p><strong>Rating: </strong> {detail.rating}</p>
     </div>
     <img className={detalle.image} src={detail.image} alt={detail.name} />
   </div>

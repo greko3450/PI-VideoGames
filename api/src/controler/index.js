@@ -108,6 +108,7 @@ const savedGenre = async () => {
 
           if (Array.isArray(genres)) {
             for (let j = 0; j < genres.length; j++) {
+              //llave de unisicidad
               const existingGenre = await Genre.findOne({ where: { name: genres[j] } });
               if (existingGenre) {
                 // console.log(`El género ${genres[j]} ya existe en la base de datos`);

@@ -1,8 +1,8 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    background-color: #f9f7f7;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(45deg, #b3926c00, #402d0e33);
+  flex-wrap: wrap;
   }
   
   .text {
@@ -27,12 +27,14 @@
   
   .text h3 {
     margin-bottom: 1rem;
+    color: #60834f;
   }
   
   .text p {
     font-size: 1rem;
     line-height: 1.5;
-    color: #536652d9;
+    margin-bottom: 31px;
+    color: #60834f;
   }
   
   .image {
@@ -42,10 +44,30 @@
     height: 435px;
     width: 435px;
     box-shadow: -7px 0px 23px rgb(73 114 64 / 68%);
-    background-color: #78755869;
+    background: linear-gradient(45deg, #91bf0145, #5e34c145, #4bc13445);
     padding: 17px;
+    
   }
   
+  @keyframes intermitente {
+    0% {
+      background: linear-gradient(45deg, #91bf011f, #5e34c124, #4bc13438);
+  }
+  20% {
+      background: linear-gradient(45deg, #a534c130, #4bc1342b, #91bf0130);
+  }
+  60% {
+      background: linear-gradient(45deg, #4bc13447,#91bf0142, #5e34c13d);
+  }
+    /* 100% {
+      background: linear-gradient(45deg, #5e34c1c9, #4bc134c9, #91bf01);
+      opacity: 0.1;
+    } */
+  }
+  .image {
+    animation: intermitente 3s linear infinite;
+  }
+
   .letter {
     position: absolute;
     top: 50%;

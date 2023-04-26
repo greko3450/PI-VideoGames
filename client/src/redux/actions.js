@@ -72,15 +72,16 @@ export const searchGames = (name) => {
         })
         dispatch({
           type: SEARCH_ERROR,
-          payload: "Games encontrado"
+          payload: alert("Games encontrado")
         })
       } else {
         dispatch({
           type: SEARCH_ERROR,
-          payload: "No Fount Games"
+          payload: alert("No Fount Games")
         })
       }
     } catch (error) {
+      
       // console.log(error.message)
       alert("NO HAY NOMBRE  " + error.message)
     }
@@ -98,18 +99,20 @@ export const createGames = (form) => {
           type: CREATE_GAMES,
           payload: formData   
         })
-        dispatch({
-          type: FORM_ERROR,
-          payload: "Game create"
-        })
+        
       } else {
-        dispatch({
+       dispatch({
           type: FORM_ERROR,
-          payload: "Game not found"
+          payload: "Video juego creado"
         })
       }
     } catch (error) {
+      dispatch({
+        type: FORM_ERROR,
+        payload: "Video juego no creado"
+      })
       console.log(error);
+      
     }
   }
 }
