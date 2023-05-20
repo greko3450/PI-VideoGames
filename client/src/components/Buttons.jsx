@@ -1,20 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { searchGenres } from '../redux/actions';
 import buttonStyle from "./Buttons.module.css"
-import {generos} from "./formulario/form.js"
+// import {generos} from "./formulario/form.js"
 
 function Buttons(props) {
-  
-
+ 
+  const dispatch = useDispatch()
+  const forGenre = useSelector(state => state.forGenre)
   const { handleGenres, value, handleGames, createdValue, order , handlerSorted} = props;
   
+  useEffect(() => {
+    dispatch(searchGenres())
+  }, [dispatch])
 
   return (
     <div>
       <label  htmlFor="genres"><strong className={buttonStyle.labelText}>Genres: </strong></label>
       <select className={buttonStyle.botons} id="genres" value={value} onChange={ handleGenres}>
         <option className={buttonStyle.selector} value="">All</option>
-        {generos.map((genre, index) => (
-          <option className={buttonStyle.selector} key={index} value={genre}>{genre}</option>
+        {forGenre.map((genre, index) => (
+          <option className={buttonStyle.selector} key={index} value={genre.name} >{genre.name}</option>
         ))}
       </select>
 

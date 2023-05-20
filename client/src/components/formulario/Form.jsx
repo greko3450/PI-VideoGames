@@ -8,6 +8,7 @@ import {platforms} from "./form.js"
 
 function Form() {
   const dispatch = useDispatch()
+
   const forGenre = useSelector(state => state.forGenre)
 
   // console.log(forGenre);
@@ -34,8 +35,11 @@ function Form() {
 
   useEffect(() => {
     
-    dispatch(searchGenres())
+dispatch(searchGenres())
   }, [dispatch])
+
+
+  
   // let errorValidate = () => {
     
     
@@ -95,6 +99,7 @@ function Form() {
     } else {
       newErrors.releaseDate = "";
     }
+    
   
     if (form.rating < 0 || form.rating > 5) {
       newErrors.rating = "Ingresa un número de 0 a 5";
@@ -131,6 +136,23 @@ function Form() {
     resetForm()
   }
 
+  // FALTA EL HANDLE SELECT
+  // function handleSelect(e) {
+  //   const selectedDessert = e.target.value;
+  //   setForm({
+  //     ...form,
+  //     desserts: [...form.desserts, selectedDessert],
+  //   });
+  //   e.target.value = ""; //limpiar el valor seleccionado
+  // }
+
+  // ELBORRADO DEL HANDLE SELECT
+  // function handleDelete(el) {
+  //   setForm({
+  //     ...form,
+  //     desserts: form.desserts.filter((occ) => occ !== el),
+  //   });
+  // }
   // let handleGenre = () => {
     
   // }
@@ -182,7 +204,7 @@ const resetForm = () => {
         <input type="text"  name="rating" value={form.rating} onChange={handleOnchange} />
         {error.rating && <p>{error.rating}</p> }
       </label>
-        
+        {/* FALTA EL HANDLE SELECT  */}
         <label htmlFor="genres">genres:
           <select name="genres"   onChange={handleOnchange}  >
             {forGenre?.map((genre, index) => (
@@ -191,7 +213,7 @@ const resetForm = () => {
               </option>
             ))}
           </select>
-        </label>z
+        </label>
        
     <button className={formStyle.boton} type="submit">crear Receta</button>
           {/* {errorCreate !== "" ? <p>{errorCreate}</p> : ""} */}
@@ -204,3 +226,226 @@ const resetForm = () => {
 }
 
 export default Form;
+
+
+
+
+
+
+////**************************** */
+
+
+
+// import React, { useState, useEffect } from "react";
+// // import { useNavigate } from "react-router-dom";
+// import { postDessert, getDessert } from "../../redux/actions/index";
+// import { useDispatch, useSelector } from "react-redux";
+// import NavBar from "../../components/Navbar/Navbar";
+// import style from "./dessert.module.css";
+
+// export default function CreateDessert() {
+//   const dispatch = useDispatch();
+// //   const navigate = useNavigate();
+
+//   const desserts = useSelector((state) => state.dessert);
+//   const errorForm =  useSelector(state => state.errorForm);
+//   const [errors, setErrors] = useState({
+//     name: "",
+//     summary: "",
+//     description: "",
+//     image: "",
+//     price: 0,
+//     desserts: [],
+//   });
+
+//   const [form, setForm] = useState({
+//     name: "",
+//     summary: "",
+//     description: "",
+//     image: "",
+//     price: 0,
+//     desserts: [],
+//   });
+
+//   function validate() {
+//     let newErrors = {};
+//     if (!form.name) {
+//       newErrors.name = "Se requiere un nombre para el postre";
+//     } else if (!/^[a-zA-Z ]+$/.test(form.name)) {
+//       newErrors.name = "No se permiten numeros"
+//     } else {
+//       newErrors.name = ""
+//     }
+
+//     if (!form.summary) {
+//       newErrors.summary = "Se requiere completar el summary";
+//     } else {
+//       newErrors.summary = ""
+//     }
+
+
+//     if (!form.description) {
+//       newErrors.description = "Se requiere completar la descripcion";
+//     } else {
+//       newErrors.description = ""
+//     }
+
+//     if (!form.desserts) {
+//       newErrors.desserts = "Se requiere conocer el postre";
+//     } else {
+//       newErrors.desserts = ""
+//     }
+
+  
+//     setErrors({ ...errors, ...newErrors });
+//   }
+
+//   function handleChange(e) {
+//     e.target.name === "dessert"
+//       ? setForm({
+//           ...form,
+//           desserts: [...form.desserts, e.target.value],
+//         })
+//       : setForm({
+//           ...form,
+//           [e.target.name]: e.target.value,
+//         });
+//     validate(e.target.value);
+//   }
+
+//   function handleDelete(value) {
+//     setForm({
+//       ...form,
+//       desserts: form.desserts.filter((occ) => occ !== value),
+//     });
+//   }
+
+//   useEffect(() => {
+//     dispatch(getDessert());
+//   }, [dispatch]);
+
+//   function handleSelect(e) {
+//     const selectedDessert = e.target.value;
+//     setForm({
+//       ...form,
+//       desserts: [...form.desserts, selectedDessert],
+//     });
+//     e.target.value = ""; //limpiar el valor seleccionado
+//   }
+
+//   function handleSubmit(e) {
+//     e.preventDefault();
+    
+//     dispatch(postDessert(form));
+    
+//     resetForm()
+//     // navigate("/Products");
+//   }
+
+//   const resetForm = () => {
+//     setForm({
+//       name: "",
+//     summary: "",
+//     description: "",
+//     image: "",
+//     price: 0,
+//     desserts: [],
+//     })
+//   }
+//     return(
+//         <div className={style.cont}>
+//             <NavBar/>
+//             <h1>Crea tu postre!</h1>
+//             <form onSubmit={(e) => handleSubmit(e)} className="form">
+
+//                 <div>
+//                     <label className="label">Nombre:</label>
+//                     <input 
+//                     type="text"
+//                     value={form.name}
+//                     name="name"
+//                     onChange={handleChange}
+//                     />
+//                     {errors.name && (
+//                         <p className='error'>{errors.name}</p>
+//                     )}
+//                 </div>
+//                 <div>
+//                     <label>Summary:</label>
+//                     <input 
+//                     type="text"
+//                     value={form.summary}
+//                     name="summary"
+//                     onChange={handleChange}
+//                     />
+//                      {errors.summary && (
+//                         <p className='error'>{errors.summary}</p>
+//                     )}
+//                 </div>
+//                 <div>
+//                     <label>Descripcion:</label>
+//                     <input 
+//                     type="text"
+//                     value={form.description}
+//                     name="description"
+//                     onChange={handleChange}
+//                     />
+//                      {errors.description && (
+//                         <p className='error'>{errors.description}</p>
+//                     )}
+//                 </div>
+//                 <div>
+//                     <label>Price:</label>
+//                     <input 
+//                     type="number"
+//                     value={form.price}
+//                     name="price"
+//                     onChange={handleChange}
+//                     />
+//                      {errors.price && (
+//                         <p className='error'>{errors.price}</p>
+//                     )}
+//                 </div>
+//                 <div>
+//                     <label>Imagen PNG:</label>
+//                     <input 
+//                     type="text"
+//                     value={form.image}
+//                     name="image"
+//                     onChange={handleChange}
+//                     />
+//                      {errors.image && (
+//                         <p className='error'>{errors.image}</p>
+//                     )}
+//                 </div>
+//                 <label htmlFor="desserts">Dessert:</label>
+//           <select name="desserts"   onChange={handleSelect}  >
+//             {desserts?.map((el, index) => (
+//               <option value={el} key={index}>
+//                 {el}
+//               </option>
+//             ))}
+//           </select>
+        
+
+//                 <br>
+//                 </br>
+//                 <p/>
+//               <ul><li>{form.desserts?.map(el => el + " , ")}</li></ul>
+//               <button type='submit' className="button">Crear Postre</button>
+//               {errorForm !== "" ?  <h6>{errorForm}</h6> : ""}
+//             </form>
+//               {
+                  
+//                   form.desserts?.map(el => 
+//                     <div className="divOcc">
+//                     <p className="divOcc">{el}</p>
+//                     <button className=" botonX" onClick={() => handleDelete(el)}>X</button>
+//                     </div>
+//                 )
+//             }
+            
+//         </div>
+//     )
+
+// }

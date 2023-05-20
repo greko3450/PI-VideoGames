@@ -77,7 +77,7 @@ const reducer = (state = initialState, action) => {
         case CREATE_GAMES:
           return {
             ...state,
-            gameCreate: [...state.gameCreate, action.payload]
+            gameCreate: [...state.videoGamesByGenreAll, action.payload]
           }    
         case FORM_ERROR:
           // const errorData = state.gameCreate
