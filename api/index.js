@@ -26,6 +26,6 @@ const port = process.env.PORT || 3001
 conn.sync({ force: false}).then(() => {
 //  await savedApi()
   server.listen(port, () => {
-    console.log(`%s listening at 3001 ${port}`); // eslint-disable-line no-console
+    console.log(`%s listening at ${port}`); // eslint-disable-line no-console
   });
 });
