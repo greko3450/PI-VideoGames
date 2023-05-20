@@ -80,8 +80,8 @@ videogameRouter.get("/", async (req, res) => {
   let { name } = req.query;
   try {
     if (name) {
-      let gamesFromApi = await apiName(name);
-      // let gamesFromApi = await apiGame(name);
+      // let gamesFromApi = await apiName(name);
+      let gamesFromApi = await apiGame(name);
       let gamesFromDb = await Videogame.findAll({
         where: {
           name: {
@@ -130,34 +130,82 @@ videogameRouter.get("/", async (req, res) => {
 
 });
 ///****************************************************** */
-
-
 videogameRouter.post('/', async (req, res) => {
-  const {name, description, platforms, image, releaseDate, rating, created, genres} = req.body;
+  const { name, description, platforms, image, releaseDate, rating, created, genres } = req.body;
   try {
-    // if (name && description && platforms && image && releaseDate && rating && genres) {
-      const newVideoGame = await Videogame.create({
-        name,
-        description,
-        platforms,
-        image,
-        releaseDate,
-        rating,
-        created
-      });
-      if(Array.isArray(genres)) {
-        let genreInstances = await Promise.all(genres.map(async(genre) => {
-          const [genreInstance] = await Genre.findOrCreate({ where: {name: genre}})
-          return genreInstance
-        } ))
-        await newVideoGame.addGenres(genreInstances)
-        res.status(200).json(newVideoGame)
-      }
-    
+    const newVideoGame = await Videogame.create({
+      name,
+      description,
+      platforms,
+      image,
+      releaseDate,
+      rating,
+      created
+    });
+    if (Array.isArray(genres)) {
+      let genreInstances = await Promise.all(genres.map(async (genre) => {
+        const [genreInstance] = await Genre.findOrCreate({
+          where: { name: genre },
+          defaults: { name: genre }
+        });
+        return genreInstance;
+      }));
+      await newVideoGame.addGenres(genreInstances);
+      res.status(200).json(newVideoGame);
+    }
   } catch (error) {
     console.log(error);
     res.status(500).send('Internal server error');
   }
 });
+
+
+// videogameRouter.post('/', async (req, res) => {
+//   const {name, description, platforms, image, releaseDate, rating, created, genres} = req.body;
+//   try {
+//     // if (name && description && platforms && image && releaseDate && rating && genres) {
+//       const newVideoGame = await Videogame.create({
+//         name,
+//         description,
+//         platforms,
+//         image,
+//         releaseDate,
+//         rating,
+//         created
+//       });
+//       if(Array.isArray(genres)) {
+//         let genreInstances = await Promise.all(genres.map(async(genre) => {
+//           const [genreInstance] = await Genre.findOrCreate({ where: {name: genre}})
+//           return genreInstance
+//         } ))
+//         await newVideoGame.addGenres(genreInstances)
+//         res.status(200).json(newVideoGame)
+//       }
+    
+//   } catch (error) {
+//     // console.log(error);
+//     res.status(500).send('Internal server error' + error);
+//   }
+// });
+
+videogameRouter.delete("/:idVideogame", (req, res) => {
+  let {idVideogame} = req.params;
+  try {
+    if(idVideogame) {
+    let deletedGame = Videogame.destroy({
+      where: {
+        id: idVideogame
+      }
+    })
+    res.status(200).json(deletedGame)
+  } else {
+    res.status(404).json({message: "el id por game no fue borrado"})
+  }
+  } catch (error) {
+    res.status(500).json({message: "error interno de la ruta " + error})
+  }
+})
+  
+    
 
 module.exports = videogameRouter;

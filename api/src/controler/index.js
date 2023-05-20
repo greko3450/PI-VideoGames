@@ -1,5 +1,5 @@
 const axios = require("axios");
-const {Op} = require("sequelize")
+// const {Op} = require("sequelize")
 const {Videogame, Genre} = require("../db");
 require("dotenv").config();
 const {API_KEY} = process.env
@@ -96,6 +96,38 @@ const apiName= async(name) => {
     }
 
 //****************************************************************************************************************************************************** */
+// const savedGenre = async () => {
+//   try {
+//     const data = await apiGame();
+
+//     if (data) {
+//       const saved = [];
+//       for (let i = 0; i < data.length; i++) {
+//         try {
+//           const { genres } = data[i];
+
+//           if (Array.isArray(genres)) {
+//             for (let j = 0; j < genres.length; j++) {
+//               //llave de unisicidad
+//               const existingGenre = await Genre.findOne({ where: { name: genres[j] } });
+//               if (existingGenre) {
+//                 // console.log(`El género ${genres[j]} ya existe en la base de datos`);
+//               } else {
+//                 const newGenre = await Genre.create({ name: genres[j] });
+//                 saved.push(newGenre);
+//               }
+//             }
+//           }
+//         } catch (error) {
+//           console.log(error);
+//         }
+//       }
+//       return saved;
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 const savedGenre = async () => {
   try {
     const data = await apiGame();
@@ -109,13 +141,13 @@ const savedGenre = async () => {
           if (Array.isArray(genres)) {
             for (let j = 0; j < genres.length; j++) {
               //llave de unisicidad
-              const existingGenre = await Genre.findOne({ where: { name: genres[j] } });
-              if (existingGenre) {
-                // console.log(`El género ${genres[j]} ya existe en la base de datos`);
-              } else {
-                const newGenre = await Genre.create({ name: genres[j] });
+              
+              const newGenre = await Genre.findOrCreate({
+                where: { name: genres[j] },
+                defaults: { name: genres[j] }
+              });
                 saved.push(newGenre);
-              }
+              
             }
           }
         } catch (error) {
